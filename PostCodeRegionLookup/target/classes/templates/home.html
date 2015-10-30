@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>UK Postcode Country Lookup</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" href="css/PostCodeStyles.css" rel="stylesheet" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+
+  //Set the submit of the form
+  jQuery(document).ready(function($) {
+	$("#countrySearchForm").submit(function(event) {
+		// Prevent the form from submitting via the browser.
+		$('#countryResultValue').val("..Searching");
+		countryResultValue
+		event.preventDefault();
+		searchForCountry();
+	});
+  });
+
+  //Pass the country entered by the user to the spring request controller getPostCodeCountry
+  function searchForCountry() { 
+    $.ajax({
+	  url: 'getPostCodeCountry',
+	  data: { pPostCode : $("#postCodeSearchValue").val()},
+	  type: 'POST',
+	  success: function(data){
+	    $('#countryResultValue').val(data);
+	   }
+	})
+  }
+
+</script>
+</head>
+<body>
+<div class="mainContainer">
+<form id="countrySearchForm" name="countrySearchForm" >
+  <input placeHolder="Postcode" type="text" id="postCodeSearchValue" name="postCodeSearchValue" value="" class="postCodeInput"/>
+  <br />
+  <br />
+  <input type="submit" id="submitButton" name="submitButton" value="Find country" class="submitButton"/>
+  <br />
+  <br />
+  <input placeHolder="Country" type="text" id="countryResultValue" name="countryResultValue" value="" class="postCodeInput" disabled="disabled"/>
+</form>
+</div>
+</body>
+
+</html>

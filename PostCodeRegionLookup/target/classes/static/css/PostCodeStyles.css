@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+
+.submitButton {
+	background-color:#bac8d1;
+	-moz-border-radius:19px;
+	-webkit-border-radius:19px;
+	border-radius:19px;
+	border:1px solid #7a7a9c;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:20px;
+	font-weight:bold;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 4px #2f6627;
+}
+.submitButton:hover {
+	background-color:#9aa1e6;
+}
+.submitButton:active {
+	position:relative;
+	top:1px;
+}
+
+.postCodeInput {
+  padding: 10px;
+  border: solid 3px #7a7a9c;
+  transition: border 0.3s;
+  text-align: center; 
+}
+.postCodeInput:focus{
+  border: solid 5px #969696;
+}
+
+.mainContainer {
+	text-align: center;
+    width: 300px;
+    height: 200px;
+    margin-top: 10%;
+    margin-left: auto ;
+    margin-right: auto ;
+}
